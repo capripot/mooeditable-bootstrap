@@ -1301,7 +1301,7 @@ MooEditable.UI.Dialog = new Class({
 
 MooEditable.UI.AlertDialog = function(alertText){
 	if (!alertText) return;
-	var html = alertText + ' <button class="dialog-ok-button">' + MooEditable.Locale.get('ok') + '</button>';
+	var html = alertText + ' <button class="dialog-ok-button btn btn-mini btn-info">' + MooEditable.Locale.get('ok') + '</button>';
 	return new MooEditable.UI.Dialog(html, {
 		'class': 'mooeditable-alert-dialog',
 		onOpen: function(){
@@ -1322,8 +1322,8 @@ MooEditable.UI.PromptDialog = function(questionText, answerText, fn){
 	if (!questionText) return;
 	var html = '<label class="dialog-label">' + questionText
 		+ ' <input type="text" class="text dialog-input" value="' + answerText + '">'
-		+ '</label> <button class="dialog-button dialog-ok-button">' + MooEditable.Locale.get('ok') + '</button>'
-		+ '<button class="dialog-button dialog-cancel-button">' + MooEditable.Locale.get('cancel') + '</button>';
+		+ '</label> <button class="dialog-button dialog-ok-button btn btn-small btn-info">' + MooEditable.Locale.get('ok') + '</button>'
+		+ ' <button class="dialog-button dialog-cancel-button btn btn-small">' + MooEditable.Locale.get('cancel') + '</button>';
 	return new MooEditable.UI.Dialog(html, {
 		'class': 'mooeditable-prompt-dialog',
 		onOpen: function(){
