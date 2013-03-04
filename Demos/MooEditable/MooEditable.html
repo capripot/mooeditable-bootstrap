@@ -22,20 +22,22 @@
 
 	</head>
 	<body>
+		<div id="wrap">
+			<div class="container">
+				<h1>MooEditable basic example</h1>
 
-		<h1>MooEditable basic example</h1>
+				<form id="theForm" method="post" action="http://form-data.appspot.com/" class="span12">
 
-		<form id="theForm" method="post" action="http://form-data.appspot.com/">
+					<textarea id="textarea-1" name="editable1" class="span10" rows="10">
+						&lt;p&gt;&lt;strong&gt;Here&lt;/strong&gt; is your &lt;strike&gt;text&lt;/strike&gt;&lt;/p&gt;
+					</textarea>
 
-			<textarea id="textarea-1" name="editable1" class="span10" rows="10">
-				Here is the text
-			</textarea>
+					<p><input type="submit" class="btn btn-large"></p>
 
-			<input type="submit">
+				</form>
 
-		</form>
-
-		<div id="data"></div>
-
+				<div id="data"></div>
+			</div>
+		</div>
 	</body>
 </html>
