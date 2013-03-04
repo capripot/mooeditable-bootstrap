@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <title>MooEditable</title>
+
+<link rel="stylesheet" href="Assets/MooEditable/MooEditable.css">
+<link rel="stylesheet" href="Assets/Bootstrap/bootstrap.css">
 <style>
-body {
-	color: #000;
-	background-color: #fff;
-	font-family: helvetica, arial, sans-serif;
-	font-size: 80%;
-}
 .download{
 	float: right;
 }
@@ -14,10 +11,15 @@ h1 a{
 	color: #000;
 	background-color: transparent;
 	text-decoration: none;
-	border-bottom: 2px solid #000;
 }
 h1 a:hover{
 	border-color: #000;
+}
+h3{
+	color: #999;
+}
+h3 a{
+	color: #000;
 }
 pre{
 	color: #fff;
@@ -27,8 +29,6 @@ pre{
 }
 
 </style>
-<link rel="stylesheet" href="Assets/MooEditable/MooEditable.css">
-<link rel="stylesheet" href="Assets/Bootstrap/bootstrap.css">
 <script src="http://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
 <script src="https://raw.github.com/capripot/mooeditable-bootstrap/master/Source/MooEditable/MooEditable.js"></script>
 <script>
@@ -39,7 +39,7 @@ pre{
 
 <a href="http://github.com/capripot/mooeditable-bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-<div class="wrap">
+<div id="wrap">
 <div class="container">
 	<div class="download">
 	<a href="http://github.com/capripot/mooeditable-bootstrap/zipball/master">
@@ -48,15 +48,13 @@ pre{
 	<img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
 	</div>
 
-	<h1><a href="http://github.com/capripot/mooeditable-bootstrap">MooEditable</a> 
-	<small>by <a href="http://github.com/cheeaun">cheeaun</a> forked by <a href="http://github.com/capripot">capripot</a></small></h1>
+	<h1><a href="http://github.com/capripot/mooeditable-bootstrap">MooEditable for Bootstrap</a></h1>
+	<h3>by <a href="http://github.com/cheeaun">cheeaun</a> forked by <a href="http://github.com/capripot">capripot</a></h3>
 
 	<p class="description">A simple web-based WYSIWYG editor, written in <a href="http://mootools.net/">MooTools</a> and fiting with <a href="http://twitter.github.com/bootstrap/" title="Bootstrap">Bootstrap</a>.</p>
 	
 	<h2>Demo</h2>
-	<textarea class="mooeditable" id="textarea-1" name="editable1" rows="8" class="span10">
-		&lt;p&gt;&lt;strong&gt;This&lt;/strong&gt; is cool!&lt;/p&gt;
-	</textarea>
+	<textarea id="textarea-1" name="editable1" rows="8" class="mooeditable span10">&lt;p&gt;&lt;strong&gt;This&lt;/strong&gt; is cool!&lt;/p&gt;</textarea>
 
 	<h2>Download</h2>
 	<p>You can download this project in either
