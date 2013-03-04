@@ -122,11 +122,12 @@ this.MooEditable = new Class({
 		});
 
 		// Override all textarea styles
+		this.textarea_class = this.textarea.get('class');
 		this.textarea.addClass('mooeditable-textarea').setStyle('height', dimensions.y);
 		
 		// Build the iframe
 		this.iframe = new IFrame({
-			'class': 'mooeditable-iframe uneditable-input '+this.textarea.get('class'),
+			'class': 'mooeditable-iframe uneditable-input '+this.textarea_class,
 			frameBorder: 0,
 			src: 'javascript:""', // Workaround for HTTPs warning in IE6/7
 			styles: {
