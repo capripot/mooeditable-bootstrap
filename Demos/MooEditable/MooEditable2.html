@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>MooEditable</title>
+		<style>
+		body {
+			color: #000;
+			background-color: #fff;
+			font-family: helvetica, arial, sans-serif;
+			font-size: 80%;
+			text-align: center;
+		}
+		#container{
+			margin: 0 auto;
+			width: 700px;
+			text-align: left;
+		}
+		.download{
+			float: right;
+		}
+		h1 a{
+			color: #000;
+			background-color: transparent;
+			text-decoration: none;
+			border-bottom: 2px solid #fafafa;
+		}
+		h1 a:hover{
+			border-color: #000;
+		}
+		pre{
+			color: #fff;
+			background-color: #000;
+			padding: 10px;
+			font-size: 110%;
+		}
+
+		</style>
+		<link href="https://raw.github.com/capripot/mooeditable-bootstrap/master/Assets/MooEditable/MooEditable.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="https://raw.github.com/capripot/mooeditable-bootstrap/master/Assets/Bootstrap/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
+		<script src="https://raw.github.com/capripot/mooeditable-bootstrap/master/Source/MooEditable/MooEditable.js"></script>
+		<script>
+			window.addEvent('domready', function(){
+				$('textarea-1').mooEditable();
+				// Post submit
+				$('theForm').addEvent('submit', function(e){
+					alert($('textarea-1').value);
+					return true;
+				});
+			});
+		</script>
+
+	</head>
+	<body>
+
+		<a href="http://github.com/capripot/mooeditable-bootstrap"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+		
+		<div id="wrap">
+			<div class="container">
+				<h1>MooEditable basic example</h1>
+
+				<form id="theForm" method="post" action="http://form-data.appspot.com/" class="span12">
+
+					<textarea id="textarea-1" name="editable1" class="span10" rows="10">
+						&lt;p&gt;&lt;strong&gt;Here&lt;/strong&gt; is your &lt;strike&gt;text&lt;/strike&gt;&lt;/p&gt;
+					</textarea>
+
+					<p><input type="submit" class="btn btn-large btn-primary"></p>
+
+				</form>
+
+				<div id="data"></div>
+			</div>
+		</div>
+	</body>
+</html>
