@@ -1,14 +1,13 @@
 .mooeditable-container{
 	position: relative;
-	border: 2px solid #ddd;
 }
 
-.mooeditable-ui-toolbar{
+/*.mooeditable-ui-toolbar{
 	color: inherit;
 	background-color: #eee;
 	padding: 2px;
 }
-
+*/
 .mooeditable-ui-toolbar:after{
 	content: ".";
 	display: block;
@@ -24,7 +23,7 @@
 	vertical-align: middle;
 }
 
-.mooeditable-ui-toolbar .mooeditable-ui-button{
+/*.mooeditable-ui-toolbar .mooeditable-ui-button{
 	cursor: pointer;
 	border: 0;
 	width: auto;
@@ -34,7 +33,7 @@
 	vertical-align: middle;
 	color: inherit;
 	background-color: transparent;
-}
+}*/
 * html .mooeditable-ui-toolbar .mooeditable-ui-button{ /* IE6 */
 	width: 24px;
 	overflow: visible;
@@ -52,11 +51,11 @@
 	background-color: #ddd;
 }
 
-.mooeditable-ui-toolbar .mooeditable-ui-button:hover,
+/*.mooeditable-ui-toolbar .mooeditable-ui-button:hover,
 .mooeditable-ui-toolbar .mooeditable-ui-button.hover{
 	color: inherit;
 	background-color: #fff;
-}
+}*/
 
 .mooeditable-ui-toolbar .mooeditable-ui-button.disabled{
 	cursor: default;
@@ -130,14 +129,14 @@
 	vertical-align: top;
 }
 
-.mooeditable-textarea{
+/*.mooeditable-textarea{
 	margin: 0 !important;
 	padding: 0 !important;
 	border: 0 !important;
 	width: 100% !important;
-	resize: none !important; /* disable resizable textareas in Webkit */
-	outline: 0 !important; /* disable focus ring in Safari */
-}
+	resize: none !important;  disable resizable textareas in Webkit 
+	outline: 0 !important;  disable focus ring in Safari 
+}*/
 
 .mooeditable-ui-dialog{
 	color: inherit;

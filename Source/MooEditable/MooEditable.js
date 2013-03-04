@@ -98,6 +98,7 @@ this.MooEditable = new Class({
 				}, this);
 			}
 		}.bind(this));
+		this.toolbar_groups = [];
 		this.render();
 	},
 	
@@ -125,7 +126,7 @@ this.MooEditable = new Class({
 		
 		// Build the iframe
 		this.iframe = new IFrame({
-			'class': 'mooeditable-iframe',
+			'class': 'mooeditable-iframe uneditable-input '+this.textarea.get('class'),
 			frameBorder: 0,
 			src: 'javascript:""', // Workaround for HTTPs warning in IE6/7
 			styles: {
@@ -1054,7 +1055,8 @@ MooEditable.UI.Toolbar= new Class({
     
 	initialize: function(options){
 		this.setOptions(options);
-		this.el = new Element('div', {'class': 'mooeditable-ui-toolbar ' + this.options['class']});
+		this.el = new Element('div', {'class': 'mooeditable-ui-toolbar btn-toolbar ' + this.options['class']});
+		this.addGroup();
 		this.items = {};
 		this.content = null;
 	},
@@ -1069,7 +1071,7 @@ MooEditable.UI.Toolbar= new Class({
 		} else {
 			this.content = actions.map(function(action){
 				if (action == '|') {
-					return this.addSeparator();
+					return this.addGroup();
 				}
 				else if (action == '/') {
 					return this.addLineSeparator();
@@ -1088,12 +1090,12 @@ MooEditable.UI.Toolbar= new Class({
 		var options = act.options || {};
 		var item = new MooEditable.UI[type.camelCase().capitalize()](Object.append(options, {
 			name: action,
-			'class': action + '-item toolbar-item',
+			'class': action + '-item toolbar-item btn',
 			title: act.title,
 			onAction: self.itemAction.bind(self)
 		}));
 		this.items[action] = item;
-		document.id(item).inject(this.el);
+		document.id(item).inject(this.el.getElement('.btn-group:last-child'));
 		return item;
 	},
 	
@@ -1103,6 +1105,10 @@ MooEditable.UI.Toolbar= new Class({
 	
 	addSeparator: function(){
 		return new Element('span.toolbar-separator').inject(this.el);
+	},
+	
+	addGroup: function(){
+		return new Element('div.btn-group').inject(this.el);
 	},
 
 	addLineSeparator: function(){
@@ -1205,7 +1211,7 @@ MooEditable.UI.Button = new Class({
 	},
 	
 	enable: function(){
-		if (this.active) this.el.removeClass('onActive');
+		if (this.active) this.el.removeClass('active');
 		if (!this.disabled) return;
 		this.disabled = false;
 		this.el.removeClass('disabled').set({
@@ -1228,13 +1234,13 @@ MooEditable.UI.Button = new Class({
 	activate: function(){
 		if (this.disabled) return;
 		this.active = true;
-		this.el.addClass('onActive');
+		this.el.addClass('active');
 		return this;
 	},
 	
 	deactivate: function(){
 		this.active = false;
-		this.el.removeClass('onActive');
+		this.el.removeClass('active');
 		return this;
 	}
 	
