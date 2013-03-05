@@ -1272,7 +1272,8 @@ MooEditable.UI.Dialog = new Class({
 				'display': 'none'
 			},
 			events: {
-				click: self.click.bind(self)
+				click: self.click.bind(self),
+				keyup: self.keyup.bind(self)
 			}
 		});
 	},
@@ -1284,6 +1285,11 @@ MooEditable.UI.Dialog = new Class({
 	click: function(){
 		this.fireEvent('click', arguments);
 		return this;
+	},
+	
+	keyup: function(){
+		this.fireEvent('keyup', arguments);
+		return;
 	},
 	
 	open: function(){
@@ -1348,7 +1354,17 @@ MooEditable.UI.PromptDialog = function(questionText, answerText, fn){
 				this.close();
 				if (fn) fn.attempt(answer, this);
 			}
+		},
+		onKeyup: function(e){
+			if(e.key != "enter") return;
+			e.preventDefault();
+			var input = this.el.getElement('.dialog-input');
+			var answer = input.get('value');
+			input.set('value', answerText);
+			this.close();
+			if (fn) fn.attempt(answer, this);
 		}
+		
 	});
 };
 
