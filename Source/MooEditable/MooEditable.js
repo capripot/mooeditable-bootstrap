@@ -1272,8 +1272,7 @@ MooEditable.UI.Dialog = new Class({
 				'display': 'none'
 			},
 			events: {
-				click: self.click.bind(self),
-				keyup: self.keyup.bind(self)
+				click: self.click.bind(self)
 			}
 		});
 	},
@@ -1287,14 +1286,17 @@ MooEditable.UI.Dialog = new Class({
 		return this;
 	},
 	
-	keyup: function(){
-		this.fireEvent('keyup', arguments);
-		return;
+	keydown: function(e){
+		if(e.key != "enter") return;
+		e.stop();
+		this.fireEvent('keydown', e);
+		return this;
 	},
 	
 	open: function(){
 		this.el.setStyle('display', '');
 		this.fireEvent('open', this);
+		this.el.getElement('.dialog-content input').addEvent('keydown', this.keydown.bind(this));
 		return this;
 	},
 	
@@ -1305,6 +1307,7 @@ MooEditable.UI.Dialog = new Class({
 	}
 
 });
+
 
 MooEditable.UI.AlertDialog = function(alertText){
 	if (!alertText) return;
@@ -1355,16 +1358,13 @@ MooEditable.UI.PromptDialog = function(questionText, answerText, fn){
 				if (fn) fn.attempt(answer, this);
 			}
 		},
-		onKeyup: function(e){
-			if(e.key != "enter") return;
-			e.preventDefault();
+		onKeydown: function(e){
 			var input = this.el.getElement('.dialog-input');
 			var answer = input.get('value');
 			input.set('value', answerText);
 			this.close();
 			if (fn) fn.attempt(answer, this);
-		}
-		
+		}		
 	});
 };
 
