@@ -3,7 +3,7 @@ MooEditable
 
 A simple web-based WYSIWYG editor, written in [MooTools](http://mootools.net/).
 
-![Screenshot](http://capripot.github.com/mooeditable/mooeditable-screenshot.png)
+![Screenshot](http://capripot.github.com/mooeditable-bootstrap/mooeditable-screenshot.png)
 
 Features
 --------
